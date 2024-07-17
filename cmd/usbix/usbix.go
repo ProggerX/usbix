@@ -7,7 +7,6 @@ import (
 	"os"
 	"os/exec"
 	"strconv"
-	"strings"
 )
 
 type Input []struct {
@@ -32,13 +31,12 @@ func main() {
 	if len(os.Args) != 2 {
 		log.Fatalln("I expected only one argument - path to directory containing flake.nix, you given me", len(os.Args))
 	}
-	eval_cmd := exec.Command("nix", "eval", "--json", os.Args[1]+"#usbix")
+	eval_cmd := exec.Command("nix", "eval", "--json", os.Args[1]+"#usbix", "--write-to", "/tmp/usbix-evaled")
 	out, err := eval_cmd.CombinedOutput()
 	if err != nil {
 		log.Fatalln("Error while evaluating flake,", "output:", string(out))
 	}
-	clean, _ := eval_cmd.Output()
-	clean = []byte(strings.TrimSpace(string(clean)))
+	clean, _ := os.ReadFile("/tmp/usbix-evaled")
 	var decoded Input
 	err = json.Unmarshal(clean, &decoded)
 	if err != nil {
