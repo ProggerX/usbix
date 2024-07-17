@@ -36,8 +36,9 @@ func main() {
 	if err != nil {
 		log.Fatalln("Error while evaluating flake,", "output:", string(out))
 	}
+	clean, _ := eval_cmd.Output()
 	var decoded Input
-	err = json.Unmarshal(out, &decoded)
+	err = json.Unmarshal(clean, &decoded)
 	if err != nil {
 		log.Fatalln("Error while running unmarshal,", "err:", err)
 	}
