@@ -2,7 +2,7 @@
 ## USBix - declarative storage.
 #### Use the power of Go and Nix Flakes to make your USB storage really beautiful
 ## Deadly simple flake
-- ```nix
+- ```
 {
     inputs.usbix.url = "github:ProggerX/usbix";
 	outputs = { usbix, ... }: {
