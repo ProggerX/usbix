@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/exec"
 	"strconv"
+	"strings"
 )
 
 type Input []struct {
@@ -37,6 +38,7 @@ func main() {
 		log.Fatalln("Error while evaluating flake,", "output:", string(out))
 	}
 	clean, _ := eval_cmd.Output()
+	clean = []byte(strings.TrimSpace(string(clean)))
 	var decoded Input
 	err = json.Unmarshal(clean, &decoded)
 	if err != nil {
