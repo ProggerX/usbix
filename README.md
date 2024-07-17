@@ -2,8 +2,7 @@
 ## USBix - declarative storage.
 #### Use the power of Go and Nix Flakes to make your USB storage really beautiful
 ## Deadly simple flake
-- ```
-{
+- ```{
     inputs.usbix.url = "github:ProggerX/usbix";
 	outputs = { usbix, ... }: {
         defaultApp."x86_64-linux" = usbix.defaultApp."x86_64-linux"; # Change this to your architecture.
@@ -26,7 +25,6 @@
 			}
 		];
 	};
-}
-```
+}```
 - change what you want
 - just run ```nix run <path> -- <path>```, ```nix run . -- .``` for example
