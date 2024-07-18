@@ -26,11 +26,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1721284882,
-        "narHash": "sha256-h09zcv6Qhz43y2KSs7CSQ6DovWVxGJaBZjBUeIXmgZA=",
+        "lastModified": 1721285356,
+        "narHash": "sha256-qC3fNjjJ+XtaLcWFnjOG7MkJ7S0SigsZKTimJdDjwsc=",
         "owner": "ProggerX",
         "repo": "usbix",
-        "rev": "5d1d4dc147ffc6827ee286bd851f07258396140e",
+        "rev": "c4d1cdc21d5e1298b12e78b9f9178108de40ebcb",
         "type": "github"
       },
       "original": {
