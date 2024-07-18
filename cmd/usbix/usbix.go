@@ -38,7 +38,7 @@ func main() {
 		log.Fatalln("Error while evaluating flake,", "output:", string(out))
 	}
 	var decoded Input
-	err = json.Unmarshal([]byte(strings.Split(string(out), " ")[len(strings.Split(string(out), " "))-1]), &decoded)
+	err = json.Unmarshal([]byte(strings.TrimSpace(strings.Split(string(out), " ")[len(strings.Split(string(out), " "))-1])), &decoded)
 	if err != nil {
 		log.Fatalln("Error while running unmarshal,", "err:", err)
 	}
