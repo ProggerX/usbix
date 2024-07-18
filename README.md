@@ -2,7 +2,8 @@
 ## USBix - declarative storage.
 #### Use the power of Go and Nix Flakes to make your USB storage really beautiful
 ## Deadly simple flake
-- ```nix {
+```nix
+{
     inputs.usbix.url = "github:ProggerX/usbix";
 	outputs = { usbix, ... }: {
         defaultApp."x86_64-linux" = usbix.defaultApp."x86_64-linux"; # Change this to your architecture.
@@ -25,6 +26,9 @@
 			}
 		];
 	};
-}```
+}
+```
 - change what you want
 - just run ```nix run <path> -- <path>```, ```nix run . -- .``` for example
+## Why not Disko?
+Yes, disko is MORE powerful and useful. But usbix config is simpler and I think this is the ideal solution for USB sticks.
