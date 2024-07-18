@@ -32,7 +32,7 @@ func main() {
 	if len(os.Args) != 2 {
 		log.Fatalln("I expected only one argument - path to directory containing flake.nix, you given me", len(os.Args))
 	}
-	eval_cmd := exec.Command("nix", "eval", "--json", os.Args[1]+"#usbix", "--write-to", "/tmp/usbix-evaled")
+	eval_cmd := exec.Command("nix", "eval", "--json", os.Args[1]+"#usbix")
 	out, err := eval_cmd.CombinedOutput()
 	if err != nil {
 		log.Fatalln("Error while evaluating flake,", "output:", string(out))
