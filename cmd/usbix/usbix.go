@@ -37,10 +37,8 @@ func main() {
 	if err != nil {
 		log.Fatalln("Error while evaluating flake,", "output:", string(out))
 	}
-	clean, _ := os.ReadFile("/tmp/usbix-evaled")
-	clean = []byte(strings.TrimSpace(string(clean)))
 	var decoded Input
-	err = json.Unmarshal(clean, &decoded)
+	err = json.Unmarshal([]byte(strings.Split(string(out), " ")[len(strings.Split(string(out), " "))-1]), &decoded)
 	if err != nil {
 		log.Fatalln("Error while running unmarshal,", "err:", err)
 	}
